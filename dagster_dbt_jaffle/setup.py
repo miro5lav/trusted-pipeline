@@ -5,7 +5,8 @@ setup(
     packages=find_packages(exclude=["dagster_dbt_jaffle_tests"]),
     install_requires=[
         "dagster",
-        "dagster-cloud"
+        "dagster-cloud",
+        "pendulum<3.0"
     ],
     extras_require={"dev": ["dagit", "pytest"]},
 )

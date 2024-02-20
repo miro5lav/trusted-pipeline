@@ -15,7 +15,8 @@ def create_raw_scheme():
 @asset
 def extract_raw_customers():
     os.makedirs(f"{DBT_PROJECT_PATH}/data", exist_ok=True)
-    df = pd.read_csv("s3://dbt-tutorial-public/jaffle_shop_customers.csv")
+    df = pd.read_csv(f"{DBT_PROJECT_PATH}/source/raw_customers.csv")
+    #"s3://dbt-tutorial-public/jaffle_shop_customers.csv")
     df.to_csv(f"{DBT_PROJECT_PATH}/data/raw_customers.csv")
 
 
@@ -27,7 +28,7 @@ def raw_customers(extract_raw_customers):
 @asset
 def extract_raw_orders():
     os.makedirs(f"{DBT_PROJECT_PATH}/data", exist_ok=True)
-    df = pd.read_csv("s3://dbt-tutorial-public/jaffle_shop_orders.csv")
+    df = pd.read_csv("f{DBT_PROJECT_PATH}/source/jaffle_shop_orders.csv")
     df.to_csv(f"{DBT_PROJECT_PATH}/data/raw_orders.csv")
 
 
@@ -40,7 +41,7 @@ def raw_orders(extract_raw_orders):
 @asset
 def extract_raw_payments():
     os.makedirs(f"{DBT_PROJECT_PATH}/data", exist_ok=True)
-    df = pd.read_csv("s3://dbt-tutorial-public/stripe_payments.csv")
+    df = pd.read_csv("f{DBT_PROJECT_PATH}/source/stripe_payments.csv")
     df.to_csv(f"{DBT_PROJECT_PATH}/data/raw_payments.csv")
 
 
