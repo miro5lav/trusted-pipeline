@@ -81,4 +81,6 @@ Configure and run your local MySQL machine
 
 Create test.json file in current directory
 
-[Copy json data into your trial versio of Snowflake](json2snowflake.py)
+[Copy json data into your trial version of Snowflake](json2snowflake.py)
+
+[Create Duck DB for testing](create_duck_db.py)
