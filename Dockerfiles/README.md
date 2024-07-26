@@ -19,12 +19,14 @@ docker ps
 
 
 ## Run docker kafka-with-zookeeper
-docker-compose up -d -f kafka-with-zookeeper.yaml
+docker-compose -f kafka-with-zookeeper.yaml up -d 
 
 ### Connect docker and see logs in Windows Sublinux
 Go to wsl ( you can install it in Powershell with wsl --install)
 
-ZOOKEEPER_CLIENT_PORT is 2181
+Check if connections exist :
+ZOOKEEPER_CLIENT_PORT is 22181
+ 
 nc -vz localhost 22181
 KAFKA PORT is 29092
 nc -vz localhost 29092

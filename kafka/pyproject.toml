@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "docker-kafka"
+version = "0.1.0"
+description = "Publisher producer of coins"
+authors = ["Miroslaw R <mirrad@10g.pl>"]
+license = "GPL"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+faust = "^1.10.4"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
