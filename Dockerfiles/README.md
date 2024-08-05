@@ -33,3 +33,10 @@ nc -vz localhost 29092
 Run:
 docker-compose logs kafka | grep -i started
 
+### Postgre docker file tips:
+Get postgresql sample config file 
+
+docker run -i --rm postgres cat /usr/share/postgresql/postgresql.conf.sample > my-postgres.conf
+
+# run postgres with custom config
+docker run -d --name postgres -v "$PWD/my-postgres.conf":/etc/postgresql/postgresql.conf -e POSTGRES_PASSWORD=example postgres -c 'config_file=/etc/postgresql/postgresql.conf'
