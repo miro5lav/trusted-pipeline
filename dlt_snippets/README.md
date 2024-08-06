@@ -60,7 +60,9 @@ GRANT ALL PRIVILEGES ON FUTURE TABLES IN DATABASE dlt_data TO DLT_LOADER_ROLE;
 
 
 # Setting up PostgreSQL
-Comming soon...
+
+MySQL can be installed from bitnami/mysql:8.0.38 image.
+PostgreSQL is located in Dockerfiles.
 
 
 
@@ -84,3 +86,7 @@ Create test.json file in current directory
 [Copy json data into your trial version of Snowflake](json2snowflake.py)
 
 [Create Duck DB for testing](create_duck_db.py)
+
+Link how to copy MySQL data into Snowflake
+https://dlthub.com/docs/pipelines/sql_database_mysql/load-data-with-python-from-sql_database_mysql-to-snowflake
+
