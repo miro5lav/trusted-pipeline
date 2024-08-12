@@ -90,3 +90,56 @@ Create test.json file in current directory
 Link how to copy MySQL data into Snowflake
 https://dlthub.com/docs/pipelines/sql_database_mysql/load-data-with-python-from-sql_database_mysql-to-snowflake
 
+# Mongo DB:
+
+Authenticate first user :
+
+mongosh -u "root" -p "xxx" --authenticationDatabase "admin"
+
+Load data into mongoDB as cmd:
+
+mongoimport -u importer --db root --collection customers --type csv --headerline --file employees.csv
+
+or use MondgoDB Compass 
+## Check if we have data loaded 
+db.customers.find().pretty()
+
+# In Terminal of mongodb you need to create user with 
+
+mongosh
+
+use admin
+
+db.createUser({
+  user: "importer",
+  pwd: "Pass",
+  roles: [
+    { role: "readWrite", db: "myDatabase" }
+  ]
+})
+
+In order to load data from Mongo into MySQL new table must be created on MySQL:
+
+### New table to test loading data from MongoDB to MySQL with dlt
+
+<code>
+CREATE TABLE IF NOT EXISTS retail.customers (
+    _id VARCHAR(24) PRIMARY KEY,
+    EMPLOYEE_ID INT,
+    FIRST_NAME VARCHAR(50),
+    LAST_NAME VARCHAR(50),
+    EMAIL VARCHAR(50),
+    PHONE_NUMBER VARCHAR(20),
+    HIRE_DATE VARCHAR(20),
+    JOB_ID VARCHAR(10),
+    SALARY DECIMAL(10, 2),
+    COMMISSION_PCT VARCHAR(10),
+    MANAGER_ID INT,
+    DEPARTMENT_ID INT
+);
+</code>
+
+Custom destination does not handle data type so Hire date is varchar.
+
+[Script to run](mongo2Mysql.py)
+
