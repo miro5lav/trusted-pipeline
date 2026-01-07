@@ -1,0 +1,11 @@
+[project]
+name = "prefect-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dlt>=1.20.0",
+    "duckdb>=1.4.3",
+    "prefect>=3.6.9",
+]
