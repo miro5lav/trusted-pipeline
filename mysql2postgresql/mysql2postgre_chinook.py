@@ -7,9 +7,9 @@ from dlt.sources.credentials import ConnectionStringCredentials
 
 def load_selected_tables_from_database() -> None:
 
-    # Create a pipeline
+    # Create a pipeline with database name mydb and schema chinook
     pipeline = dlt.pipeline(
-        pipeline_name="dlt_postgre_chinook", destination=dlt.destinations.postgres(destination_name="mydb"), dataset_name="mydb"
+        pipeline_name="dlt_postgre_chinook", destination=dlt.destinations.postgres(destination_name="mydb"), dataset_name="chinook"
     )
 
     # Credentials for the sample database.
@@ -17,6 +17,7 @@ def load_selected_tables_from_database() -> None:
     credentials = ConnectionStringCredentials(
         "mysql://root:a@localhost:3306/Chinook"
     )
+    # Faktura is copy of invoice but I am manipulating incremental load it into  
     source_sql = sql_database(credentials).with_resources("Album", "Invoice","Faktura")
 
     source_sql.Invoice.apply_hints(

@@ -40,3 +40,6 @@ docker run -i --rm postgres cat /usr/share/postgresql/postgresql.conf.sample > m
 
 # run postgres with custom config
 docker run -d --name postgres -v "$PWD/my-postgres.conf":/etc/postgresql/postgresql.conf -e POSTGRES_PASSWORD=example postgres -c 'config_file=/etc/postgresql/postgresql.conf'
+
+# My configuration of postgresql 
+docker run -d --name postgres -v "$PWD/my-postgres.conf":/etc/postgresql/postgresql.conf -e POSTGRES_PASSWORD=qazzaq postgres -c 'config_file=.\my-postgresql.conf'
